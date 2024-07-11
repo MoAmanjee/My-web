@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammed Amanjee - IT Student & Judo Athlete</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        header nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .profile, .achievements, .skills, .contact {
+            background: #fff;
+            margin-top: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .achievements ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .achievements ul li {
+            background: #e4e4e4;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            flex: 1 1 calc(33.333% - 20px);
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .achievements ul li:hover {
+            background: #ffeb3b;
+            transform: scale(1.05);
+        }
+        .skills .skill {
+            margin-bottom: 20px;
+        }
+        .skills .skill .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .skills .skill .skill-bar {
+            background: #e4e4e4;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 20px;
+        }
+        .skills .skill .skill-bar div {
+            height: 100%;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            width: 0;
+            transition: width 2s;
+        }
+        .contact form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact form input, .contact form textarea {
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact form button {
+            padding: 10px;
+            border: none;
+            background: #ff7e5f;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .contact form button:hover {
+            background: #feb47b;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 500px;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mohammed Amanjee</h1>
+            <p>IT Student & Promising Judo Athlete</p>
+            <nav>
+                <a href="#about">About Me</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about" class="section profile">
+            <h2>About Me</h2>
+            <p>Hello! I'm an enthusiastic IT student with a strong background in technology and a promising history in judo. I've represented South Africa in various competitions, including the Commonwealth Games, and I'm passionate about combining my technical skills with my dedication and discipline from sports.</p>
+        </section>
+
+        <section id="achievements" class="section achievements">
+            <h2>Achievements</h2>
+            <ul>
+                <li data-modal="achievement1">IT Student with a strong academic record.</li>
+                <li data-modal="achievement2">Represented South Africa in judo at the Commonwealth Games.</li>
+                <li data-modal="achievement3">Achieved national colors in judo.</li>
+                <li data-modal="achievement4">.......</li>
+                <li data-modal="achievement5">Head of charity and outreach of the msa.</li>
+            </ul>
+        </section>
+
+        <section id="skills" class="section skills">
+            <h2>Skills</h2>
+            <div class="skill">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-bar"><div style="width: 90%;"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">HTML & CSS</div>
+                <div class="skill-bar"><div style="width: 95%;"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Python</div>
+                <div class="skill-bar"><div style="width: 85%;"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Java</div>
+                <div class="skill-bar"><div style="width: 80%;"></div></div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <h2>Contact Me</h2>
+            <form id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Mohammed Amanjee. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="achievement1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Strong Academic Record</h2>
+            <p>Details about your strong academic performance, including GPA, relevant courses, and projects.</p>
+        </div>
+    </div>
+    <div id="achievement2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Represented South Africa in Judo</h2>
+            <p>Details about your representation of South Africa in judo at the Commonwealth Games, including achievements and experiences.</p>
+        </div>
+    </div>
+    <div id="achievement3" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Achieved National Colors in Judo</h2>
+            <p>Details about achieving national colors in judo, including the significance and your journey.</p>
+        </div>
+    </div>
+    <div id="achievement4" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Active Member of Tech Club</h2>
+            <p>Details about your involvement in the university's tech club, including projects, leadership roles, and contributions.</p>
+        </div>
+    </div>
+    <div id="achievement5" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Community Tech Workshops</h2>
+            <p>Details about your volunteering experience in community tech workshops, teaching coding and IT skills, and the impact you made.</p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.achievements ul li').forEach(item => {
+            item.addEventListener('click', event => {
+                const modalId = event.currentTarget.getAttribute('data-modal');
+                document.getElementById(modalId).style.display = 'flex';
+            });
+        });
+
+        document.querySelectorAll('.close').forEach(item => {
+            item.addEventListener('click', event => {
+                event.currentTarget.parentElement.parentElement.style.display = 'none';
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.skill-bar div').forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    bar.style.width = bar.style.width;
+                }
+            });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Message sent successfully!');
+        });
+    </script>
+</body>
+</html>
